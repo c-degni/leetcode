@@ -1,25 +1,27 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        set<int> zr;
-        set<int> zc;
-        for (int i = 0; i < matrix.size(); i++) {
-            for (int j = 0; j < matrix[0].size(); j++) {
-                if (matrix[i][j] == 0) {
-                    zr.insert(i);
-                    zc.insert(j);
+        vector<vector<int>> original = matrix;
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+
+        for(int row = 0; row < rows; row++)
+        {
+            for(int col = 0; col < cols; col++)
+            {
+                if(matrix[row][col] == 0 && original[row][col] == 0)
+                {
+                    for(int i = 0; i < rows; i++)
+                    {
+                        matrix[i][col] = 0;
+                    }
+
+                    for(int j = 0; j < cols; j++)
+                    {
+                        matrix[row][j] = 0;
+                    }
                 }
             }
-        }
-        for (int i = 0; i < matrix.size(); i++) {
-            if (zr.contains(i)) matrix[i] = vector<int>(matrix[0].size(), 0);
-        }
-        for (int i = 0; i < matrix[0].size(); i++) {
-            if (zc.contains(i)) {
-                for (int j = 0; j < matrix.size(); j++) {
-                    matrix[j][i] = 0;
-                }
-            } 
         }
     }
 };
