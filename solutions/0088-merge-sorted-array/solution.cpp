@@ -9,8 +9,9 @@ public:
                 nums1[i] = nums2[0];
                 nums2[0] = t;
                 sort(nums2.begin(), nums2.end());
+            } else {
+                i++;
             }
-            i++;
         }
 
         for (int &j : nums2) {
