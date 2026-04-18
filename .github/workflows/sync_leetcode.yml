@@ -18,4 +18,4 @@ jobs:
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           destination-folder: solutions
           verbose: true
-          commit-header: ""
+          commit-header: "Submission:"
